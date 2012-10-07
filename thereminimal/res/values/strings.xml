@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DjT</string>
+    <string name="selectPitch">Controlador de Pitch</string>
+    <string name="selectVolume">Controlador de Volume</string>
+    <string name="magneticsensor">Campo Magnético</string>
+    <string name="magneticx">x</string>
+    <string name="magneticy">y</string>
+    <string name="magneticz">z</string>
+    <string name="acelerometersensor">Acelerômetro</string>
+    <string name="acelerometerx">x</string>
+    <string name="acelerometery">y</string>
+    <string name="acelerometerz">z</string>
+    <string name="orientationsensor">Sensor de Orientação</string>
+    <string name="orientationx">x</string>
+    <string name="orientationy">y</string>
+    <string name="orientationz">z</string>
+    <string name="proximitysensor">Sensor de Proximidade</string>
+    <string name="proximityx">x</string>
+    <string name="start">Iniciar</string>
+    <string name="pitch">"Pitch: "</string>
+    <string name="volume">Volume:</string>
+    <string name="pitchValue">0.0 Hz</string>
+    <string name="volumeValue">0.0 %</string>
+
+</resources>
