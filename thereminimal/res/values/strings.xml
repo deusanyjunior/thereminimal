@@ -23,5 +23,8 @@
     <string name="volume">Volume:</string>
     <string name="pitchValue">0.0 Hz</string>
     <string name="volumeValue">0.0 %</string>
+    <string name="pitchsensorvalue">"0.0"</string>
+    <string name="volumesensorvalue">"0.0"</string>
+    <string name="sensor">Sensor:</string>
 
 </resources>

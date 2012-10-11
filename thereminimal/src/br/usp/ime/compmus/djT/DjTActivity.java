@@ -3,6 +3,7 @@ package br.usp.ime.compmus.djT;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ public class DjTActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         
         
         /** Controladores de Pitch **/

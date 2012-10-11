@@ -10,6 +10,7 @@ import org.puredata.core.PdBase;
 import org.puredata.core.utils.IoUtils;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -35,13 +36,16 @@ public class BlackSoundBox extends Activity implements SensorEventListener {
 	private SensorController volumeSensorController;
 	
 	TextView pitchView;
+	TextView pitchValueView;
 	TextView volumeView;
+	TextView volumeValueView;
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bsb);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         
         Bundle b = this.getIntent().getExtras();
@@ -52,7 +56,9 @@ public class BlackSoundBox extends Activity implements SensorEventListener {
         							 b.getInt("volumeSensorControllerEvent"));
         
         pitchView = (TextView) findViewById(R.id.pitchValue);
+        pitchValueView = (TextView) findViewById(R.id.pitchSensorValue);
         volumeView = (TextView) findViewById(R.id.volumeValue);
+        volumeValueView = (TextView) findViewById(R.id.volumeSensorValue);
         
         try {
         	initPd();
@@ -126,18 +132,20 @@ public class BlackSoundBox extends Activity implements SensorEventListener {
     private void setPitch(SensorEvent event) {
     	float pitchValue =  (  (pitchSensorController.adjustSensorValue(event) + pitchSensorController.getMinRange())/
     						   (pitchSensorController.getMaxRange() - pitchSensorController.getMinRange() ) )  *
-    						   (this.maxPitch - this.minPitch) - this.minPitch;
+    						   (this.maxPitch - this.minPitch) + this.minPitch;
     	
     	PdBase.sendFloat("pitch", pitchValue);
     	pitchView.setText(Float.toString(pitchValue).concat(" Hz"));
+    	pitchValueView.setText(Float.toString(event.values[pitchSensorController.getEventValueSelected()]));
     }
     
     private void setVolume(SensorEvent event) {
     	float volumeValue = (  ( volumeSensorController.adjustSensorValue(event) + volumeSensorController.getMinRange() )/
     						   ( volumeSensorController.getMaxRange() - volumeSensorController.getMinRange() ) ) *
-    						   (this.maxVolume - this.minVolume) - this.minVolume;
+    						   (this.maxVolume - this.minVolume) + this.minVolume;
     	PdBase.sendFloat("volume", volumeValue);
     	volumeView.setText(Float.toString(volumeValue*100).concat(" %"));
+    	volumeValueView.setText(Float.toString(event.values[volumeSensorController.getEventValueSelected()]));
     }
     
     @Override
@@ -168,6 +176,7 @@ public class BlackSoundBox extends Activity implements SensorEventListener {
         mSensorManager.registerListener(this, 
                 mSensorManager.getDefaultSensor(Sensor.TYPE_TEMPERATURE),
                 SensorManager.SENSOR_DELAY_FASTEST);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
     
     public void onSensorChanged(SensorEvent event) {

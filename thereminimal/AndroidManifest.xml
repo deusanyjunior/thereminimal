@@ -12,7 +12,8 @@
         android:screenOrientation="portrait" >
         <activity
             android:name=".DjTActivity"
-     		android:label="@string/app_name" >
+     		android:label="@string/app_name" 
+     		android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,7 +21,8 @@
         </activity>
         
         <activity 
-            android:name=".BlackSoundBox">
+            android:name=".BlackSoundBox"
+            android:screenOrientation="portrait">
         </activity>
         
         

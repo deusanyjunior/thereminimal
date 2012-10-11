@@ -15,10 +15,24 @@
     <TextView
         android:id="@+id/pitchValue"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:textSize="50dp"
         android:text="@string/pitchValue"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/sensorPitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sensor"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/pitchSensorValue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/pitchsensorvalue"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -31,10 +45,25 @@
     <TextView
         android:id="@+id/volumeValue"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:textSize="50dp"
         android:text="@string/volumeValue"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/sensorVolume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sensor"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/volumeSensorValue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/volumesensorvalue"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
 
 </LinearLayout>
